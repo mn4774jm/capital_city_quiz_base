@@ -2,7 +2,7 @@ let randomCountryElement = document.querySelector('#random-country')
 let userAnswerElement = document.querySelector("#user-answer")
 let submitButton = document.querySelector("#submit-answer")
 let resultTextElement = document.querySelector('#result')
-
+let restartButton = document.querySelector('#restart')
 // TODO finish the script to challenge the user about their knowledge of capital cities.
 // An array of country codes is provided in the countries.js file. 
 // Your browser treats all JavaScript files as one big file, o
