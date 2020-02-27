@@ -24,15 +24,19 @@ function start_game() {
 // on submit click collect user submission and pass to get_answer method
 function user_entry(countryCode, countryObject) {
     submitButton.addEventListener('click', function () {
-        get_answer(userAnswerElement.value)
-    })
+        // validation if user doesn't enter value'
+        if(!userAnswerElement.value){
+            alert('Please enter a guess')
+        }else {
+            get_answer(userAnswerElement.value)
+        }})
 
 // allow for three attempted connections before terminating and alerting user
     function get_answer(answer) {
         // 3 attempts exceeded. Program will stop trying to connect and alert user
         if (attempts <= 0) {
-            console.log('Too many errors, ending attempt')
-            alert('Could not connect. Ending attempt')
+            console.log('Too many errors, ending attempt');
+            alert('Could not connect. Ending attempt');
             return
         }
         // connects to api using country code
@@ -53,7 +57,7 @@ function user_entry(countryCode, countryObject) {
         })
             // if errors occur, reduce attempt counter and log
             .catch(err => {
-                attempts --
+                attempts --;
                 console.log(err)
             }) //TODO is .finally required here for the attempt counter to work?
     }
