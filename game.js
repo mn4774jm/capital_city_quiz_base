@@ -67,5 +67,5 @@ restartButton.addEventListener('click', function () {
     userAnswerElement.value = '';
     resultTextElement.innerHTML = '';
     start_game()
-})
+});
 
