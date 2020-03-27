@@ -1,23 +1,23 @@
 
 //find locations
-let randomCountryElement = document.querySelector('#random-country')
-let userAnswerElement = document.querySelector("#user-answer")
-let submitButton = document.querySelector("#submit-answer")
-let resultTextElement = document.querySelector('#result')
-let restartButton = document.querySelector('#restart')
+let randomCountryElement = document.querySelector('#random-country');
+let userAnswerElement = document.querySelector("#user-answer");
+let submitButton = document.querySelector("#submit-answer");
+let resultTextElement = document.querySelector('#result');
+let restartButton = document.querySelector('#restart');
 
-console.log(countriesAndCodes)  // You don't need to log countriesAndCodes - just proving it is available
+console.log(countriesAndCodes);  // You don't need to log countriesAndCodes - just proving it is available
 // begin
-let attempts = 3
-start_game(attempts)
+let attempts = 3;
+start_game(attempts);
 
 // method uses Math to randomize the object selected. Name assigned to randomCountryElement and two letter country code
 // assigned. Pass code and object to user_entry function.
 function start_game() {
-    let randCountryObject = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)]
-    randomCountryElement.innerHTML = randCountryObject.name
-    let randCountryCode = randCountryObject['alpha-2']
-    console.log(randCountryCode)
+    let randCountryObject = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
+    randomCountryElement.innerHTML = randCountryObject.name;
+    let randCountryCode = randCountryObject['alpha-2'];
+    console.log(randCountryCode);
     user_entry(randCountryCode, randCountryObject)
 }
 
@@ -29,7 +29,7 @@ function user_entry(countryCode, countryObject) {
             alert('Please enter a guess')
         }else {
             get_answer(userAnswerElement.value)
-        }})
+        }});
 
 // allow for three attempted connections before terminating and alerting user
     function get_answer(answer) {
@@ -44,10 +44,10 @@ function user_entry(countryCode, countryObject) {
             // take json string and convert to an object
             .then(response => response.json()
             ).then(countryData => {
-            console.log(countryData)
+            console.log(countryData);
             // assign capital city object element
-            let capital = countryData[1][0]['capitalCity']
-            console.log(capital)
+            let capital = countryData[1][0]['capitalCity'];
+            console.log(capital);
             // conditional to check user submission and respond
             if (answer.toLowerCase() === capital.toLowerCase()) {
                 resultTextElement.innerHTML = `Correct! the capital of ${countryObject.name} is ${capital}.`
@@ -64,8 +64,8 @@ function user_entry(countryCode, countryObject) {
 }
 // restart button clears all fields and calls start_game method
 restartButton.addEventListener('click', function () {
-    userAnswerElement.value = ''
-    resultTextElement.innerHTML = ''
+    userAnswerElement.value = '';
+    resultTextElement.innerHTML = '';
     start_game()
 })
 
