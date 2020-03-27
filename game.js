@@ -53,6 +53,7 @@ function user_entry(countryCode, countryObject) {
                 resultTextElement.innerHTML = `Correct! the capital of ${countryObject.name} is ${capital}.`
             } else {
                 resultTextElement.innerHTML = `Sorry, the correct answer is ${capital}`
+                userAnswerElement.value = '';
             }
         })
             // if errors occur, reduce attempt counter and log
